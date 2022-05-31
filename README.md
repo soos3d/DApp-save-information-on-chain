@@ -13,7 +13,7 @@ The most known use cases for blockchain technology are linked to DeFi, but these
 <ol>script.js - JavaScript functionality, what makes the buttons work</ol>
 <ol>SaveString.sol - Smart contract code</ol>
 
-<b>Note that the smart contract is already deployed and verified on the FTM testnet, you can deploy your own smart contract on any network, you would just need to modify the contract address innto script.js</b>
+<b>Note that the smart contract is already deployed and verified on the FTM testnet, you can deploy your own smart contract on any network, you would just need to modify the contract address into script.js</b>
 
 <h2>How to run and serve the page</h2>
 
