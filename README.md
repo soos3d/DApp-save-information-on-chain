@@ -29,9 +29,7 @@ To serve the webpage, you can use a simple node server. Follow these instruction
   
   
   <ol>1 - Create a new folder and save the files from this project in it.</ol>
-  <ol>2 - Open the folder in a code editor, like Atom or VS Code.</ol>
-  <ol>3 - Open the <code>index.html</code> file.</ol>
-  <ol>4 - Serve the webpage via terminal/command prompt from the directory that has <code>index.html</code> in it and run:</ol>
+  <ol>2 - Serve the webpage via terminal/command prompt from the directory that has <code>index.html</code> in it and run:</ol>
  
  ```
  lite-server
