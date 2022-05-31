@@ -113,3 +113,5 @@ async function getString() {
     alert("Your saved string is: " + string);
 }
 ```
+
+![image](https://user-images.githubusercontent.com/99700157/171203129-66b29a30-bf94-4053-ae47-4a5f3011255f.png)
