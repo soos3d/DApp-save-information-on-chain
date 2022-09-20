@@ -173,7 +173,9 @@ At this point the head section of the HTML looks like this:
 </head>
 ```
 
-After we set up the imports, let's create the page's body, paste the following code into the HTML body, this is some basic HTML just to make a basic front end.
+### The HMTL body 
+
+After we set up the imports, let's create the page's body and paste the following code into the HTML body, this is some basic HTML just to make a bare front end.
 
 ```html
 <body>
