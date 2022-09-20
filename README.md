@@ -216,7 +216,29 @@ After we set up the imports, let's create the page's body and paste the followin
 </body>
 ```
 
-Now our HTML file is ready, we can focus on making the smart contract and creating the logic for our DApp.
+The buttons are to note since these elements will call the functions to interact with the smart contract. The `onclick` event allows us to call functions from the JavaScript code.
+
+```html
+  <div class="div2">
+    <h3>Click the button to connect MetaMask to the website</h3>
+    <button onclick="connect()">Connect Wallet</button>
+  </div>
+
+  <div class="div3"><label>Input sentence to save </label>
+    <input type="text" id="input" /><br>
+    <button onclick="saveString()">Save Sentence</button>
+  </div>
+
+  <div class="div4"> <label>Get your sentence back</label>
+    <button onclick="getString()">Retrieve Sentence</button><br>
+  </div>
+```
+
+Now our HTML file is ready, we can focus on making the smart contract and creating the logic for our DApp. You can already see what the front end looks like if you serve the page. 
+
+In the terminal run `lite-server`, and your page will be available on http://127.0.0.1:3000/, it should look like this:
+
+![screely-1663686534016](https://user-images.githubusercontent.com/99700157/191295436-3304b343-d6e3-4a4b-83e6-836a5736ca8b.png)
 
 ## The Soldity code
 
@@ -228,9 +250,7 @@ In Remix, let's create a new `.sol` file named `SaveString.sol` (or download it 
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 ```
 
-
 Inside the <code>script.js</code> file, this function detects the addresses in your MetaMask, connects MM to the webpage, and create a smart contract instance.
-
 
 ```
 async function connect() {
