@@ -158,6 +158,10 @@ In the project's folder create a new file named `script.js`. Then we can import 
 
 Then we import the ethers.js library, place this statement in the `<head>` as well, and we'll import the library without having to install any dependencies.
 
+```html
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+```
+
 At this point the head section of the HTML looks like this:
 
 ```html
