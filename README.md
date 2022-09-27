@@ -246,6 +246,39 @@ At this point, we have our front end coded and ready; let's work on the smart co
 
 In Remix, let's create a new `.sol` file named `SaveString.sol` (or download it from the repo).
 
+Here, we will code the smart contract and create the logic for our DApp. The contract will allow us to save a string on the chain and associate it to the address that called the function by using a mapping. 
+
+Paste the following code in the `SaveString.sol` file we just created. The code is commented on so you can understand what we do! If you are unfamiliar with Solitidy, I recommend following my course on Skillshare! You can have 30 days for free by signing up [from this link](https://skl.sh/3K3VJXg)!
+
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract SaveString {
+
+    // This mapping allows to associate an address with a string
+    mapping(address => string) public savedStrings;
+
+
+    // Function to save a string into the mapping with the address calling the function
+    function saveString(string memory _string) public {
+        savedStrings[msg.sender] = _string;
+    }
+
+    // Function to retrieve a string from the mapping, based on what address is calling it
+    function getString() public view returns(string memory) {
+        return savedStrings[msg.sender];
+    }
+}
+```
+
+You can deploy in the Remix VM and test it to see how it works; it only has two functions, one to save a string and one to retrieve it. Thanks to the mapping, the string saved is only called by the address that saved it!
+
+Now, to use it from our front end, we can deploy it on the network; in this case, I use the Fantom testnet. Of course, you can deploy it on any EVM-compatible chain, but you can [get some Fantom testnet](https://faucet.fantom.network/) from this website if you want to do it on Fantom. 
+
+### Deploy from Remix
+
 ```
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 ```
