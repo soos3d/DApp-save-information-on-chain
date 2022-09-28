@@ -279,6 +279,28 @@ Now, to use it from our front end, we can deploy it on the network; in this case
 
 ### Deploy from Remix
 
+There are different ways to deploy a smart contract on a blockchain, but today we'll keep it simple and deploy our contract on the Fantom testnet directly from Remix! 
+
+After the smart contract is ready, the first step is to compile it. First, let's go to the `Solidity compiler` tab, where we can choose the compiler version and compile the smart contract.
+
+We are using the 0.8 compiler version, so I'll pick the latest version, the 0.8.17, at this time. Then click on the `Compile` button or press `Ctrl` + `s`.
+
+![screely-1664395978154](https://user-images.githubusercontent.com/99700157/192880527-86640a8e-f2e9-46aa-b7e0-099748834180.png)
+
+Once the contract compiles correctly, we can deploy it. Select the Fantom testnet on your MetaMask; again, you can deploy a node using Chainstack!
+
+To set up your node:
+
+1. Sign up on Chainstack and set up an <a href="https://console.chainstack.com/user/account/create">account</a>.
+1. <a href="https://docs.chainstack.com/platform/join-a-public-network"> Deploy a node on Chainstack</a>.
+1. <a href="https://support.chainstack.com/hc/en-us/articles/360034636571-Using-MetaMask-Desktop-with-Chainstack">Add the new Chainstack node endpoint to your MetaMask.</a>
+
+After that, go on the `Deploy & run transactions` tab, select `Injected provider - MetaMask` and click `Deploy` (make sure to select the correct contract). After you approve the transaction, your contract will be deployed on the Fantom testnet! You can check mine on the [Fantom testnet explorer](https://testnet.ftmscan.com/address/0x0287f57a1a17a725428689dfd9e65eca01d82510#code).
+
+![screely-1664399208889](https://user-images.githubusercontent.com/99700157/192888915-753792f1-a032-4ffe-983a-19320874e740.png)
+
+## The JavaScript code
+
 ```
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 ```
@@ -337,11 +359,7 @@ The smart contract is already deployed and verified on the Fantom testet, so you
 
 To run it out of the box, you need to have a Fantom testned endpoint in your MetaMask. I recommend using Chainstack for this. Chainstack provides fast and reliable node endpoints for many EVM protocols.
 
-To set up your node:
 
-1. Sign up on Chainstack and set up an <a href="https://console.chainstack.com/user/account/create">account</a>.
-1. <a href="https://docs.chainstack.com/platform/join-a-public-network"> Deploy a node on Chainstack</a>.
-1. <a href="https://support.chainstack.com/hc/en-us/articles/360034636571-Using-MetaMask-Desktop-with-Chainstack">Add the new Chainstack node endpoint to your MetaMask.</a>
 
 Now you can interact with the smart contract!
 
