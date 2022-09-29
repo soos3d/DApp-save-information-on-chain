@@ -6,6 +6,23 @@ I've been making articles and tutorials about simple web3 development concepts t
 
 We'll use vanilla HTML, vanilla CSS, and `ethers.js` to make this DApp. This is an excellent way to start learning how to make a DApp.
 
+# Table of contents
+
+  - [Introduction](#introduction)
+  - [What will this DApp do?](#what-will-this-dapp-do)
+    - [The repository contains](#the-repository-contains)
+  - [Requirements](#requirements)
+  - [The code](#the-code)
+  - [The HTML code](#the-html-code)
+    - [Import the CSS styling file](#import-the-css-styling-file)
+    - [Import the JavaScript file and Etheres library](#import-the-javascript-file-and-etheres-library)
+    - [The HMTL body](#the-hmtl-body)
+  - [The Soldity code](#the-soldity-code)
+    - [Deploy from Remix](#deploy-from-remix)
+  - [The JavaScript code](#the-javascript-code)
+    - [The JavaScript functions](#the-javascript-functions)
+  - [Conclusion](#conclusion)
+
 ## What will this DApp do?
 
 This simple DApp demonstrates a blockchain use case different than DeFi.
@@ -301,11 +318,68 @@ After that, go on the `Deploy & run transactions` tab, select `Injected provider
 
 ## The JavaScript code
 
-```
-<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+At this point, we only need to link our front end to the smart contract; to do this, we use the `ethers.js` library. In this tutorial, we use a separate JavaScript file; in the repository, you will find the `script.js` file containing the JS code, but you can also type all of the JavaScript code inside a `<script>` tag in the HTML.
+
+So we create a file named `script.js` and the first thing we want to do is to create an interface with the smart contract, so we add two variables, one for the contract address, and one for the ABI. 
+
+```js
+// Smart contract address
+const contractAddress = "0x0287f57a1a17a725428689dfd9e65eca01d82510";
+
+// Smart contract ABI
+const contractABI = [{
+        "inputs": [{
+            "internalType": "string",
+            "name": "_string",
+            "type": "string"
+        }],
+        "name": "saveString",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getString",
+        "outputs": [{
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+        }],
+        "name": "savedStrings",
+        "outputs": [{
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
 ```
 
-Inside the <code>script.js</code> file, this function detects the addresses in your MetaMask, connects MM to the webpage, and create a smart contract instance.
+You can put the address from the smart contract that you deployed or keep the contract that I deployed, but it has to be on the Fantom testnet if you leave mine. 
+
+The ABI will be the same if you used the exact same code as me, but if you changed names to variables and functions, you'd have to use yours; you can find it in Remix in the `Solidity Compiler` tab. Finally, you can select the smart contract and copy the ABI.
+
+![screely-1664467927442](https://user-images.githubusercontent.com/99700157/193083725-723e2e0b-47f4-4b65-a2b9-6f124a910fe2.png)
+
+Now we have an interface to interact with the smart contract. Now let's see how the functions work.
+
+### The JavaScript functions
+
+We first want to connect the page to your MetaMask, so you can interact with the smart contract and use your account to sign the transactions to save and retrieve the strings. 
+
+Inside the `script.js` file, this function detects the addresses in your MetaMask, connects MetaMask to the webpage, and create a smart contract instance.
 
 ```
 async function connect() {
@@ -327,9 +401,7 @@ async function connect() {
 }
 ```
 
-<p></p>
-This function calls the <code>saveString()</code> function in the smart contract, passing the string inside the input field as the parameter.
-<p></p>
+This function calls the `saveString()` function in the smart contract, passing the string inside the input field as the parameter. We create a variable called `string` and use the `getElementById` property to take the value of the input box with `id="input"` in the HTML; that's the string that will be saved inside the smart contract. 
 
 ```
 async function saveString() {
@@ -337,9 +409,8 @@ async function saveString() {
     smartContract.saveString(string);
 }
 ```
-<p></p>
-This function calls the <code>getString()</code> function in the smart contract. Then shows an alert on the screen containing the retrieved string.
-<p></p>
+
+This function then calls the `getString()` function in the smart contract. Then shows an alert on the screen containing the retrieved string.
 
 ```
 async function getString() {
@@ -349,18 +420,10 @@ async function getString() {
 }
 ```
 
+These functions are all linked to the relative buttons in the front end. After saving the `script.js` file, you can serve the page using the `lite-server` command, and you'll see a page like this.
+
 ![image](https://user-images.githubusercontent.com/99700157/171203129-66b29a30-bf94-4053-ae47-4a5f3011255f.png)
  
- ## How does it work?
- 
-The purpose of this project, is to show a blockchain use case different than DeFi.
-
-The smart contract is already deployed and verified on the Fantom testet, so you can run this website and use it out of the box. Keep in mind that this is a basic example, and some features can be added to make it more functional. A great way to learn would be to modify the base smart contract and add extra features!
-
-To run it out of the box, you need to have a Fantom testned endpoint in your MetaMask. I recommend using Chainstack for this. Chainstack provides fast and reliable node endpoints for many EVM protocols.
-
-
-
 Now you can interact with the smart contract!
 
 1. Click the "Connect Wallet" button and follow the instructions on MetaMask.
@@ -368,6 +431,8 @@ Now you can interact with the smart contract!
 1. Click the "Save Sentence" button and complete the transaction from MetaMask.
 1. Click the "Retrieve Sentence" button to show an alert on the screen containing the word you saved from that address!
 
-Try to save multiple words from different addresses, so you can see how each piece of info saved is based on the address.
+Try to save multiple words from different addresses, so you can see how each piece of info saved is based on the address!
 
+## Conclusion
 
+This tutorial showed you how to create a DApp! Yes, it is simple, but that's how you start, and now you have the fundamentals to develop your own DApp!
