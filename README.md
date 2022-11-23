@@ -200,37 +200,38 @@ After we set up the imports, let's create the page's body and paste the followin
 
 ```html
 <body>
-    <div class="parent">
-        <div class="div1">
-            <h1 class="center">Save a word on the blockchain</h1>
-            <h2 class="center">This dApp allows you to save a word, a sentence, or a code on the blockchain.</h2>
-            <p>Blockchain technology is more than just DeFi applications, the possibilities are endless, and this website was created to demonstrate that. Blockchains are a great system to store information.</p>
-            <p>The smart contract linked to this website allows an address to store a sentence, can be a word, a code, or anything else you would like to save. And only that same address can retrieve and read that information.</p>
-            <p class="center">Get some test FTM here: <a href="https://faucet.fantom.network/" target="_blank">Test FTM faucet</a></p>
-            <h3 class="center">Warning!</h3>
-            <p><b>Keep in mind that this dApp is created for educational purposes, it is not designed with any security measure, and because of the blockchain's nature, everyone can see the information you pass through the functions. You should avoid storing actual sensitive information, the idea is just to show a use case.</b></p>
-            <p class="center">Any time you save a new string from the same address, the previous one is overwritten!</p>
-            <p class="center">The areas to interact with are divided by very distinct colors.</p>
+        <div class="parent">
+            <div class="div1">
+                <h1 class="center">Save a word on the blockchain</h1>
+                <h2 class="center">This DApp allows you to save a word, a sentence, or a code on the blockchain.</h2>
+                <p>Blockchain technology is more than just DeFi applications, the possibilities are endless, and this website was created to demonstrate that. Blockchains are a great system to store information.</p>
+                <p>The smart contract linked to this website allows an address to store a sentence, can be a word, a code, or anything else you would like to save. And only that same address can retrieve and read that information.</p>
+                <p class="center">Smart contract address <a href="https://testnet.ftmscan.com/address/0x0287f57a1a17a725428689dfd9e65eca01d82510#code" target="_blank">0x0287f57A1a17a725428689dfD9E65ECA01d82510</a>, on the Fantom Testnet</p>
+                <p class="center">Get some test FTM here: <a href="https://faucet.fantom.network/" target="_blank">Test FTM faucet</a></p>
+                <h3 class="center">Warning!</h3>
+                <p><b>Keep in mind that this DApp is created for educational purposes, it is not designed with any security measure, and because of the blockchain's nature, everyone can see the information you pass through the functions. You should avoid storing actual sensitive information, the idea is just to show a use case.</b></p>
+                <p class="center">Any time you save a new string from the same address, the previous one is overwritten!</p>
+                <p class="center">The areas to interact with are divided by very distinct colors.</p>
+            </div>
+
+            <div class="div2">
+                <h3>Click the button to connect MetaMask to the website</h3>
+                <button onclick="connect()">Connect Wallet</button>
+            </div>
+
+            <div class="div3"><label>Input sentence to save </label>
+                <input type="text" id="input" /><br>
+                <button onclick="saveString()">Save Sentence</button>
+            </div>
+
+            <div class="div4"> <label>Get your sentence back</label>
+                <button onclick="getString()">Retrieve Sentence</button><br>
+            </div>
         </div>
 
-        <div class="div2">
-            <h3>Click the button to connect MetaMask to the website</h3>
-            <button onclick="connect()">Connect Wallet</button>
         </div>
 
-        <div class="div3"><label>Input sentence to save </label>
-            <input type="text" id="input" /><br>
-            <button onclick="saveString()">Save Sentence</button>
-        </div>
-
-        <div class="div4"> <label>Get your sentence back</label>
-            <button onclick="getString()">Retrieve Sentence</button><br>
-        </div>
-    </div>
-
-    </div>
-
-</body>
+    </body>
 ```
 
 The buttons are to note since these elements will call the functions to interact with the smart contract. The `onclick` event allows us to call functions from the JavaScript code.
