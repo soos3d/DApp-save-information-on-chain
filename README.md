@@ -265,7 +265,7 @@ In Remix, let's create a new `.sol` file named `SaveString.sol` (or download it 
 
 Here, we will code the smart contract and create the logic for our DApp. The contract will allow us to save a string on the chain and associate it to the address that called the function by using a mapping. 
 
-Paste the following code in the `SaveString.sol` file we just created. The code is commented on so you can understand what we do! If you are unfamiliar with Solitidy, I recommend following my course on Skillshare! You can have 30 days for free by signing up [from this link](https://skl.sh/3K3VJXg)!
+Paste the following code in the `SaveString.sol` file we just created. The code is commented on so you can understand what we do!
 
 ```sol
 // SPDX-License-Identifier: MIT
